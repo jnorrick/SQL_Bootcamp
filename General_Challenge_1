@@ -1,0 +1,26 @@
+Question 1:
+How Many Payment Transactions were greater than $5?
+
+SELECT COUNT (amount) FROM payment
+WHERE amount > 5.00;
+(total 3618)
+
+
+Question 2:
+How Many Actors have a First Name that starts with the letter P?
+
+SELECT COUNT (first_name) FROM actor
+WHERE first_name LIKE 'P%';
+
+
+Question 3:
+How many unique districts are our customers from?
+
+SELECT COUNT(DISTINCT (district)) FROM address;
+
+
+Question 4:
+Retrieve the list of names for those distinct districts from previous Question
+
+SELECT DISTINCT district FROM address
+ORDER BY district;
