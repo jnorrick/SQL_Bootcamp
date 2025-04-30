@@ -1,0 +1,32 @@
+Question 1:
+We are offering our most loyal customers something. We will assign platinum status to people who have had 40 or more transaction payments. What customer ids are eligbile to receive platinum status?
+
+SELECT customer_id, COUNT (payment_id) 
+FROM payment
+GROUP BY customer_id
+HAVING COUNT (payment_id) >= 40
+ORDER BY customer_id;
+
+results - 
+144	40
+148	45
+526	42
+
+
+
+Question 2:
+What are the customer ids of our customers who have spent more than $100 in payment transactions with our staff member that is staff ID 2?
+
+SELECT customer_id, staff_id, SUM(amount) 
+FROM payment
+GROUP BY customer_id, staff_id
+HAVING SUM(amount) > 100
+AND staff_id = 2
+ORDER BY customer_id;
+
+results -
+148	2	110.78
+187	2	110.81
+211	2	108.77
+522	2	102.80
+526	2	101.78
