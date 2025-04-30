@@ -1,0 +1,33 @@
+Question 1:
+Staff 1 and 2, who had the most transactions: how many transactions did each staff handle and who gets the bonus?
+
+SELECT staff_id, COUNT(*) FROM payment
+GROUP BY staff_id;
+
+Results:
+1	7292
+2	7304
+
+So staff 2 would get the bonus
+
+
+Question 2:
+What is the average replacement cost per MPAA ratings?
+
+SELECT rating, AVG(replacement_cost) FROM film
+GROUP BY rating
+ORDER BY rating
+
+OR (if wanting rounded)
+SELECT rating, ROUND(AVG(replacement_cost),2) FROM film
+GROUP BY rating
+ORDER BY rating
+
+
+Question 3:
+What are the customer ids of the top 5 customers by total spend?
+
+SELECT customer_id, SUM(amount) FROM payment
+GROUP BY customer_id
+ORDER BY SUM(amount) DESC
+LIMIT 5;
