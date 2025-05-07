@@ -19,7 +19,7 @@ ON film.film_id = film_actor.film_id
 WHERE first_name = 'Nick'
 AND last_name = 'Wahlberg'
 
-Multiple query results:
+Multiple query results: (used additional query to find out which actor_id = 'Nick' and 'Wahlberg')
 SELECT title FROM film 
 INNER JOIN film_actor 
 ON film.film_id = film_actor.film_id
