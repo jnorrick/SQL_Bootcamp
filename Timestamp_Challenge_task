@@ -1,0 +1,17 @@
+During Which months did payments occur?
+Format your answer to return the full month name:
+
+SELECT DISTINCT(TO_CHAR(payment_date, 'Month')) FROM payment;
+
+
+How Many payments occured on a Monday?:
+My Solutions -
+SELECT COUNT(TO_CHAR(payment_date, 'day'))
+FROM payment
+WHERE TO_CHAR(payment_date, 'day') = 'monday   '
+
+Course Solution-
+SELECT COUNT(*) FROM payment
+WHERE EXTRACT(dow FROM payment_date) = 1
+
+Both return result of 2948
